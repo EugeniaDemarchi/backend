@@ -1,0 +1,121 @@
+<div class="container-fluid"  ; "height: auto">
+  <div class="row justify-content-center pb-5">
+    <div class="col-12 col-md-8 col-lg-10">
+      <h1 style="margin-top: 7rem;" class="text-center text-dark">Edición</h1>
+      {{#each data}}
+
+        <form
+          action="/cursos/modificar/{{id_materia}}"
+          method="post"
+          enctype="multipart/form-data"
+        >
+
+          <div class="form-group my-3">
+            <label for="formGroupExampleInput">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput"
+              placeholder="Ingrese nombre"
+              name="nombre"
+              value="{{nombre}}"
+            />
+          </div>
+
+          <div class="form-group my-3">
+            <label for="formGroupExampleInput2">Descripción</label>
+            <input
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput2"
+              placeholder="Ingrese descripcion"
+              name="descripcion"
+              value="{{descripcion}}"
+            />
+          </div>
+
+          <div class="form-group my-3">
+            <label for="formGroupExampleInput3">Público</label>
+            <input
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput3"
+              placeholder="Destinado a:"
+              name="destinado_a"
+              value="{{destinado_a}}"
+            />
+          </div>
+
+          <div class="form-group my-3">
+            <label for="formGroupExampleInput4">Modalidad</label>
+            <input
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput4"
+              placeholder="Ingrese modalidad"
+              name="modalidad"
+              value="{{modalidad}}"
+            />
+          </div>
+
+          <div class="form-group my-3">
+            <label for="exampleFormControlFile1">Imágen</label>
+            <input
+              type="file"
+              class="form-control"
+              id="exampleFormControlFile1"
+              name="imagen"
+            />
+            <label for="" class="mt-2">{{imagen}}</label>
+            <img
+              src="{{imagen}}"
+              class="mt-2"
+              style="width:100%"
+              alt=""
+              id="imagenProbando"
+            />
+          </div>
+
+          <div class="form-group my-3">
+            <label for="formGroupExampleInput5">Duración</label>
+            <input
+              type="text"
+              class="form-control"
+              id="formGroupExampleInput5"
+              placeholder="Ingrese dia y horario"
+              name="duracion"
+              value="{{duracion}}"
+            />
+          </div>
+
+          <div class="d-grid gap-2 col-6 mx-auto">
+            <button
+              type="submit"
+              class="btn btn-secondary btn-block mt-5"
+            >Modificar</button>
+            <a
+              href="/cursos/listado"
+              class="btn btn-secondary btn-block mt-4"
+            >Retornar</a>
+          </div>
+        </form>
+      {{/each}}
+    </div>
+  </div>
+</div>
+
+<script>
+  let archivo=document.getElementById("exampleFormControlFile1"); let imagen=
+  document.getElementById("imagenProbando"); let file;
+  archivo.addEventListener("change", function(){ file=archivo.files[0]; if
+  (file){ const fileReader= new FileReader();
+  fileReader.addEventListener("load", function(){ imagen.setAttribute("src",
+  fileReader.result) }) fileReader.readAsDataURL(file)} })
+</script>
+
+    <script src="/javascripts/darkmode.js"></script>
+    <script>
+      document .getElementById("menu-toggle") .addEventListener("click",
+      function () { document.querySelector("nav").classList.toggle("show");
+      this.classList.toggle("show"); });
+    </script>

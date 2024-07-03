@@ -1,0 +1,106 @@
+<div class="container-fluid"  "height: 100 vh">
+  <div class="row justify-content-center ">
+    <div class="col-12 col-md-8 col-lg-10">
+      <h1 style="margin-top: 7rem;" class="text-center text-dark ">Baja de Producto</h1>
+   {{#each data}}
+      
+      <form 
+      action="/cursos/eliminar/{{id_materia}}" 
+      method="post" 
+      enctype="multipart/form-data">
+
+        <div class="form-group my-10">
+          <label for="formGroupExampleInput">Nombre</label>
+          <input
+            type="text"
+            class="form-control"
+            id="formGroupExampleInput"
+            placeholder="Ingrese su nombre"
+            name="nombre"
+            value=" {{nombre}}" disabled
+          />
+        </div>
+
+          <div class="form-group my-3">
+          <label for="formGroupExampleInput2">Descripcion</label>
+          <input
+            type="text"
+            class="form-control"
+            id="formGroupExampleInput2"
+            placeholder="Ingrese la descripcion del producto"
+            name="descripcion"
+            value="{{descripcion}}" disabled>
+        </div>
+
+        <div class="form-group my-3">
+          <label for="formGroupExampleInput3">Público</label>
+          <input
+            type="text"
+            class="form-control"
+            id="formGroupExampleInput3"
+            placeholder="Destinado a:"
+            name="destinado_a"
+            value="{{destinado_a}}" disabled
+          />
+        </div>
+
+        <div class="form-group my-3">
+          <label for="formGroupExampleInput4">Modalidad</label>
+          <input
+            type="text"
+            class="form-control"
+            id="formGroupExampleInput4"
+            placeholder="Ingrese la modalidad de cursada"
+            name="modalidad"
+            value="{{modalidad}}"
+            disabled
+          />
+        </div>
+
+        <div class="form-group my-3">
+          <label for="exampleFormControlFile1">Imágen</label>
+          <input
+            type="file"
+            class="form-control"
+            id="exampleFormControlFile1"
+            name="imagen"
+            disabled>
+            <label for="" class="text-white mt-2">{{imagen}}</label>
+            <img src="{{imagen}}" class="mt-2" style="width:100%" alt="">
+        </div>
+
+        <div class="form-group my-3">
+          <label for="formGroupExampleInput5">Duración</label>
+          <input
+            type="text"
+            class="form-control"
+            id="formGroupExampleInput5"
+            placeholder="Ingrese dia y horario de cursada"
+            name="duracion"
+            value="{{duracion}}"
+            disabled
+          />
+        </div>
+
+          <div class="d-grid gap-2 col-6 mx-auto">
+            <button
+              type="submit"
+              class="btn btn-secondary btn-block mt-5"
+            >Eliminar</button>
+            <a
+            href="/cursos/listado"
+            class="btn btn-secondary btn-block mt-4"
+          >Retornar</a>
+        </div>
+        </form>
+          {{/each}}
+
+ </div>
+  </div>
+</div>
+    <script src="/javascripts/darkmode.js"></script>
+    <script>
+      document .getElementById("menu-toggle") .addEventListener("click",
+      function () { document.querySelector("nav").classList.toggle("show");
+      this.classList.toggle("show"); });
+    </script>

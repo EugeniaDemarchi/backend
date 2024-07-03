@@ -1,0 +1,461 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  height: 100%;
+}
+img {
+  width: 100%;
+  display: block;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-size: 1.2rem;
+}
+.contenedor {
+  display: grid;
+  grid-template:
+    "nav"
+    "header"
+    "img"
+    "main";
+}
+nav {
+  grid-area: nav;
+}
+.header {
+  grid-area: header;
+}
+.enlacesImg {
+  margin-top: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+main {
+  grid-area: main;
+}
+/******LILIA************************/
+
+/* Estilos del encabezado */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fff; /* Color de fondo del navbar */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header .logo-container {
+  display: flex;
+  align-items: center;
+}
+
+header nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+header nav ul li {
+  margin-right: 20px;
+}
+
+header nav ul li a {
+  color: #000;
+  font-size: 1.25rem;
+  transition: color 0.3s;
+  text-decoration: none;
+}
+
+header nav ul li a:hover {
+  color: #84a98c;
+}
+
+header a {
+  color: #fff;
+  text-decoration: none;
+}
+
+#menu-toggle {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin-right: 1rem;
+}
+
+nav li a:hover {
+  color: #cad2c5;
+}
+
+.logo-image {
+  max-height: 50px;
+}
+
+/* estilo boton claro oscuro */
+.dark-mode {
+  background-color: gainsboro !important;
+}
+
+#theme-toggle-btn {
+  background-color: transparent;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#theme-toggle-btn:hover {
+  background-color: #84a98c;
+  color: #fff;
+}
+
+/**********media queries***********/
+
+@media screen and (max-width: 767px) {
+  header {
+    flex-direction: row;
+    align-items: flex-start;
+    nav ul li a {
+      font-size: 0.9rem;
+    }
+    .logo-image {
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  #menu-toggle {
+    display: block;
+  }
+
+  nav {
+    display: none;
+    width: 100%;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  nav ul li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  nav.show {
+    display: block;
+  }
+
+  #menu-toggle.show {
+    display: none;
+  }
+  .enlacesImg {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .img {
+    width: 100%;
+  }
+  #img-2 {
+    display: none;
+  }
+  h1 {
+    color: #354f52;
+    text-align: center;
+    font-size: 1.8rem;
+    line-height: 2.5rem;
+    margin-top: 2rem;
+  }
+
+  main {
+    grid-area: main;
+  }
+  .presentacion {
+    display: flex;
+    flex-direction: column;
+    gap: 1.875rem;
+    margin: 2rem;
+  }
+
+  .enlacesh3 {
+    color: #354f52;
+    margin-top: 2rem;
+    text-align: center;
+    letter-spacing: 0.3rem;
+    word-spacing: 0.1rem;
+  }
+  p {
+    text-align: center;
+    line-height: 2rem;
+  }
+  .precio {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .contacto {
+    text-align: center;
+    margin: 2.5rem;
+  }
+  .btn-caja {
+    background-color: #cad2c5;
+    color: #354f52;
+    padding: 1.2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-size: 1.2rem;
+    /*border-radius: 0.5625rem;*/
+  }
+  .btn-caja:link,
+  .btn-caja:visited {
+    display: inline-block;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .btn-caja:hover {
+    background-color: #84a98c;
+    color: white;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  header {
+    padding: 10px;
+  }
+
+  .enlacesImg {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .img {
+    width: 50%;
+  }
+  h1 {
+    color: #354f52;
+    text-align: center;
+  }
+  main {
+    grid-area: main;
+  }
+  .presentacion {
+    display: flex;
+    flex-direction: column;
+    gap: 1.875rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    margin-left: 8rem;
+    margin-right: 8rem;
+  }
+  .enlacesh3 {
+    color: #354f52;
+    margin-top: 2.5rem;
+    text-align: center;
+    letter-spacing: 0.3rem;
+    word-spacing: 0.1rem;
+  }
+  p {
+    text-align: center;
+    line-height: 2rem;
+  }
+  .precio {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .contacto {
+    text-align: center;
+    margin: 2.5rem;
+  }
+  .btn-caja {
+    background-color: #cad2c5;
+    color: #354f52;
+    padding: 1.2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-size: 1.2rem;
+  }
+  .btn-caja:link,
+  .btn-caja:visited {
+    display: inline-block;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .btn-caja:hover {
+    background-color: #84a98c;
+    color: white;
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+  header {
+    padding: 10px 15px;
+  }
+
+  .enlacesImg {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .img {
+    width: 50%;
+  }
+  h1 {
+    color: #354f52;
+    text-align: center;
+  }
+  main {
+    grid-area: main;
+  }
+  .presentacion {
+    display: flex;
+    flex-direction: column;
+    gap: 1.875rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
+  }
+
+  .enlacesh3 {
+    color: #354f52;
+    margin-top: 2.5rem;
+    text-align: center;
+    letter-spacing: 0.3rem;
+    word-spacing: 0.1rem;
+  }
+  p {
+    text-align: center;
+    line-height: 2rem;
+  }
+  .precio {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .contacto {
+    text-align: center;
+    margin: 2.5rem;
+  }
+  .btn-caja {
+    background-color: #cad2c5;
+    color: #354f52;
+    padding: 1.2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-size: 1.2rem;
+  }
+  .btn-caja:link,
+  .btn-caja:visited {
+    display: inline-block;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .btn-caja:hover {
+    background-color: #84a98c;
+    color: white;
+  }
+}
+@media screen and (min-width: 1441px) {
+  header {
+    padding: 10px 15px;
+  }
+
+  .enlacesImg {
+    /*margin-top: 6.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;*/
+  }
+  .img {
+    width: 50%;
+  }
+
+  h1 {
+    color: #354f52;
+    text-align: center;
+  }
+  main {
+    grid-area: main;
+  }
+
+  .presentacion {
+    display: flex;
+    flex-direction: column;
+    gap: 1.875rem;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    margin-left: 25rem;
+    margin-right: 25rem;
+  }
+
+  .enlacesh3 {
+    color: #354f52;
+    margin-top: 2.5rem;
+    text-align: center;
+    letter-spacing: 0.3rem;
+    word-spacing: 0.1rem;
+  }
+  p {
+    text-align: center;
+    line-height: 2rem;
+  }
+  .precio {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+  .contacto {
+    text-align: center;
+    margin: 2.5rem;
+  }
+  .btn-caja {
+    background-color: #cad2c5;
+    color: #354f52;
+    padding: 1.2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-size: 1.2rem;
+    /*border-radius: 0.5625rem;*/
+  }
+  .btn-caja:link,
+  .btn-caja:visited {
+    display: inline-block;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+  .btn-caja:hover {
+    background-color: #84a98c;
+    color: white;
+  }
+}

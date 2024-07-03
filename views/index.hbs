@@ -1,0 +1,183 @@
+ <body>
+    <div class="contenedor">
+
+
+      <img
+        class="imgBanner"
+        src="/imagenes/imgs-banners/prueba5.jpg"
+        alt="Imagen de una persona dibujando"
+      />
+
+
+{{!-- <ul class="people_list">
+
+    <li>{{this}}</li>
+
+</ul> --}}
+
+      <main>
+        <h3 class="tituloh3">NUESTROS CURSOS</h3>
+        <section class="cursos">
+
+
+  {{#each data}}
+          <div class="Caja">
+            <div class="img-box" id="box-taller">
+              <img
+                src="{{imagen}}"
+         
+                alt="Imagen sobre guardapolvos colgados en la pared"
+              />
+              <!-- <img src="./Taller infancias 2.jpg" alt="" class="top" /> -->
+            </div>
+            <div class="info-box">
+              <h2 >{{nombre}}</h2>
+
+              <ul>
+         <li class="texto-box" >{{descripcion}}</li><br>
+         <li class="texto-box"> {{destinado_a}}</li>
+       <li class="texto-box">{{modalidad}}</li>
+     <li class="texto-box">{{duracion}}</li>
+              </ul>
+              <a href="/contacto/"
+              class="btn-caja" id="btncaja1">Contacto</a>
+            </div>
+          </div>
+            {{/each}}
+{{!-- 
+          <div class="Caja">
+            <div class="img-box">
+              <!-- <img src="./ArteUrbano1 (1).jpg" alt="" /> -->
+              <img
+                src="/imagenes/imgs-enlaces/imgs-cursos/ArteUrbano2.jpg"
+                alt="Imagen con una chica pintando un mural"
+              />
+            </div>
+            <div class="info-box">
+              <h2>Arte Urbano</h2>
+              <button class="btn-caja" id="btncaja2">Más info</button>
+            </div>
+          </div>
+
+          <div class="Caja">
+            <div class="img-box">
+              <img
+                src="/imagenes/imgs-enlaces/imgs-cursos/IlustracionDig1.jpg"
+                alt="Imagen con una mano dibujando en una tablet"
+              />
+              <!-- <img src="./ilustrac2.jpg" alt="" /> -->
+            </div>
+            <div class="info-box">
+              <h2>Ilustración Digital</h2>
+              <button class="btn-caja" id="btncaja3">Más info</button>
+            </div>
+          </div>
+
+          <div class="Caja">
+            <div class="img-box">
+              <img
+                src="/imagenes/imgs-enlaces/imgs-cursos/PinturaCreativa2.jpg"
+                alt="Imagen de una persona preparando materiales para pintar"
+                class="primer-img"
+              />
+              <!-- <img src="./PinturaCreativa1.jpg" alt="" class="segunda-img" /> -->
+            </div>
+            <div class="info-box">
+              <h2>Taller de Pintura Creativa</h2>
+              <button class="btn-caja" id="btncaja4">Más info</button>
+            </div>
+          </div>
+
+          <div class="Caja">
+            <div class="img-box">
+              <img
+                src="/imagenes/imgs-enlaces/imgs-cursos/HA1.jpg"
+                alt="Imagen de muchos libros abiertos"
+                class="primer-img"
+              />
+              <!-- <img src="./H.A2.jpg" alt="" class="segunda-img" /> -->
+            </div>
+            <div class="info-box">
+              <h2>Historia del Arte Argentino</h2>
+              <button class="btn-caja" id="btncaja5">Más info</button>
+            </div>
+          </div>
+
+          <div class="Caja">
+            <div class="img-box">
+              <!-- <img src="./clinica1.jpg" alt="" class="primer-img" /> -->
+              <img
+                src="/imagenes/imgs-enlaces/imgs-cursos/CLINICA2.jpg"
+                alt="Imagen de varias personas conversando sobre arte"
+                class="segunda-img"
+              />
+            </div>
+            <div class="info-box">
+              <h2>Clínica de Obra</h2>
+              <button class="btn-caja" id="btncaja6">Más info</button>
+            </div>
+          </div>
+   
+--}}
+     </section>
+      </main>
+
+    </div>
+       <script src="/javascripts/cursos.js"></script>
+        <script src="/javascripts/darkmode.js"></script>
+    <script>
+      document
+        .getElementById("menu-toggle")
+        .addEventListener("click", function () {
+          document.querySelector("nav").classList.toggle("show");
+          this.classList.toggle("show");
+        });
+    </script> 
+    <script>
+    const btncaja1 = document.getElementById("btncaja1");
+const btncaja2 = document.getElementById("btncaja2");
+const btncaja3 = document.getElementById("btncaja3");
+const btncaja4 = document.getElementById("btncaja4");
+const btncaja5 = document.getElementById("btncaja5");
+const btncaja6 = document.getElementById("btncaja6");
+
+document.getElementById("btncaja1").onclick = function () {
+  setTimeout(function () {
+    window.open("/cursos/infancias", "_blank");
+  }, 1000);
+};
+document.getElementById("btncaja2").onclick = function () {
+  setTimeout(function () {
+    window.open("arteurbano.html", "_blank");
+  }, 1000);
+};
+document.getElementById("btncaja3").onclick = function () {
+  setTimeout(function () {
+    window.open("ilustracion.html", "_blank");
+  }, 1000);
+};
+document.getElementById("btncaja4").onclick = function () {
+  setTimeout(function () {
+    window.open("pinturaCreativa.html", "_blank");
+  }, 1000);
+};
+document.getElementById("btncaja5").onclick = function () {
+  setTimeout(function () {
+    window.open("H.A.html", "_blank");
+  }, 1000);
+};
+document.getElementById("btncaja6").onclick = function () {
+  setTimeout(function () {
+    window.open("clinica.html", "_blank");
+  }, 1000);
+};
+
+document
+  .getElementById("theme-toggle-btn")
+  .addEventListener("click", function () {
+    document.body.classList.toggle("dark-mode");
+  });
+  </script>
+  </body>
+</html>
+
