@@ -56,7 +56,7 @@ router.post("/alta", upload.single("imagen"), async function (req, res, next) {
 
 router.get("/modificar/:id_materia", function (req, res, next) {
   connection.query(
-    "SELECT * FROM tpartevivo.materia where id_materia = " +
+    "SELECT * FROM materia where id_materia = " +
       req.params.id_materia,
     function (error, results, fields) {
       if (error) throw error;
