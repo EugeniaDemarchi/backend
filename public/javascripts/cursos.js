@@ -5,11 +5,11 @@ const btncaja4 = document.getElementById("btncaja4");
 const btncaja5 = document.getElementById("btncaja5");
 const btncaja6 = document.getElementById("btncaja6");
 
-document.getElementById("btncaja1").onclick = function () {
-  setTimeout(function () {
-    window.open("/cursos/infancias", "_blank");
-  }, 1000);
-};
+//document.getElementById("btncaja1").onclick = function () {
+  //setTimeout(function () {
+   // window.open("/cursos/infancias", "_blank");
+  //}, 1000);
+//};
 document.getElementById("btncaja2").onclick = function () {
   setTimeout(function () {
     window.open("arteurbano.html", "_blank");

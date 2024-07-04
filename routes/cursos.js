@@ -31,13 +31,13 @@ router.get("/listado/", function (req, res, next) {
   });
 });
 
-// router.get("/listado/", function (req, res, next) {
-//   connection.query("SELECT * FROM materia;", function (error, results, fields) {
-//     if (error) throw error;
-//     // res.json({ data: results });
-//     res.render("1_listadoCursos", { data: results });
-//   });
-// });
+router.get("/listado/", function (req, res, next) {
+connection.query("SELECT * FROM materia;", function (error, results, fields) {
+  if (error) throw error;
+  //res.json({ data: results });
+  res.render("1_listadoCursos", { data: results });
+  });
+});
 
 
 //alta de producto
