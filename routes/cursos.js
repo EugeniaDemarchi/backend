@@ -4,6 +4,7 @@ const multer = require("multer");
 const upload = multer({ dest: "uploads/" });
 const connection = require("./../bbdd");
 const fs = require("fs");
+const path = require("path");
 
 
 //consulta general
@@ -47,21 +48,17 @@ router.get("/alta", function (req, res, next) {
 });
 
 router.post("/alta", upload.single("imagen"), async function (req, res, next) {
-  // let sentencia = `insert into materia (nombre, descripcion, destinado_a, modalidad, imagen, duracion) values 
-  // ("${req.body.nombre}", "${req.body.descripcion}","${req.body.destinado_a}","${req.body.modalidad}", "/imagenes/${req.file.originalname}", "${req.body.duracion}")`;
-  let sentencia = 'insert into materia (nombre, descripcion, destinado_a, modalidad, duracion, imagen ) values("' + req.body.nombre + '","' + req.body.descripcion + '", "' + req.body.destinado_a + '", "' + req.body.modalidad + '", "' + req.body.duracion + '", "/imagenes/' + req.file.originalname + '")';
+  let sentencia = `insert into materia (nombre, descripcion, publico, modalidad, imagen, duracion) values 
+  ("${req.body.nombre}", "${req.body.descripcion}","${req.body.publico}","${req.body.modalidad}", "/imagenes/${req.file.originalname}", "${req.body.duracion}")`;
 
-  //   let results = await connection.query(sentencia);
-  //   fs.createReadStream("./uploads/" + req.file.filename).pipe(
-  //     fs.createWriteStream("./public/imagenes/" + req.file.originalname),
-  //     function (error) {}
-  //   );
-  //   res.render("finalizado", { mensaje: "Producto Ingresado Exitosamente" });
-  // });
-  let results = await connection.query(sentencia)
-  fs.createReadStream("./uploads/" + req.file.filename).pipe(fs.createWriteStream("./public/imagenes/" + req.file.originalname), function(error){})
-  res.render("finalizado", {mensaje: "Materia Ingresada Exitosamente"})
-});
+     let results = await connection.query(sentencia);
+    fs.createReadStream("./uploads/" + req.file.filename).pipe(
+       fs.createWriteStream("./public/imagenes/" + req.file.originalname),
+       function (error) {}
+     );
+     res.render("finalizado", { mensaje: "Materia ingresada Exitosamente" });
+   });
+
 
 
 //modificar
@@ -101,24 +98,31 @@ router.post("/modificar/:id_materia", upload.single("imagen"), async function (r
     let sentencia;
 
   if (req.file){
-    sentencia =  `update materia set nombre  = '${req.body.nombre}', descripcion  = '${req.body.descripcion}', destinado_a = '${req.body.destinado_a}',modalidad= '${req.body.modalidad}', duracion = '${req.body.duracion}', imagen = '/imagenes/${req.file.originalname}' 
+    sentencia =  `update materia set nombre  = '${req.body.nombre}', descripcion  = '${req.body.descripcion}', publico = '${req.body.publico}',modalidad= '${req.body.modalidad}', 
+    duracion = '${req.body.duracion}', imagen = '/imagenes/${req.file.originalname}' 
      where id = ${req.params.id_materia} `
 
-     fs.createReadStream("./uploads/" + req.file.filename).pipe(fs.createWriteStream("./public/imagenes/" + req.file.originalname), function(error){})
+     fs.createReadStream("./uploads/" + 
+      req.file.filename).pipe(fs.createWriteStream("./public/imagenes/" + 
+      req.file.originalname), function(error){})
 
   } else {
-    sentencia = `update materia set nombre  = '${req.body.nombre}', descripcion  = '${req.body.descripcion}'destinado_a = '${req.body.destinado_a}',modalidad= '${req.body.modalidad}', duracion = '${req.body.duracion}' where id = ${req.params.id_materia}` 
+    sentencia = `update materia set nombre  = '${req.body.nombre}', descripcion  = '${req.body.descripcion}',publico = '${req.body.publico}',modalidad= '${req.body.modalidad}', duracion = '${req.body.duracion}' where id = ${req.params.id_materia}` 
   }  
 
     connection.query(sentencia, function (error, results, fields) {
       if (error) throw error;
-      // res.json({ data: results });
+      //res.json({ data: results });
       res.render("finalizado", {
         mensaje: "La materia fue modificada exitosamente",
       });
     });
   }
 );
+
+
+
+//eliminar
 
 router.get("/eliminar/:id_materia", function (req, res, next) {
   connection.query(
