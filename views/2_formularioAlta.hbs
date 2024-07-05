@@ -48,16 +48,7 @@
           />
         </div>
 
-        <div class="form-group my-3">
-          <label for="exampleFormControlFile1">Imagen</label>
-          <input
-            type="file"
-            class="form-control"
-            id="exampleFormControlFile1"
-            name="imagen"
-          />
-        </div>
-        <div class="form-group my-3">
+         <div class="form-group my-3">
           <label for="formGroupExampleInput5">Duración</label>
           <input
             type="text"
@@ -67,6 +58,14 @@
             name="duracion"
           />
         </div>
+        <div class="form-group my-3">
+          <label for="exampleFormControlFile1">Imagen</label>
+          <input type="file" class="form-control" id="exampleFormControlFile1" name="imagen" />
+          <label for="" class="mt-2">{{imagen}}</label>
+          <img src="{{imagen}}" class="mt-2" style="width:100%" alt="" id="imagenProbando" />
+        </div>
+
+       
         <div class="d-grid gap-2 col-6 mx-auto"><button
             type="submit"
             class="btn btn-secondary btn-block mt-5"
@@ -74,16 +73,28 @@
           <a
             href="/cursos/listado"
             class="btn btn-secondary btn-block mt-4"
-          >Retornar</a>
+          >Volver</a>
         </div>
       </form>
 
     </div>
   </div>
 </div>
-    <script src="/javascripts/darkmode.js"></script>
-    <script>
-      document .getElementById("menu-toggle") .addEventListener("click",
-      function () { document.querySelector("nav").classList.toggle("show");
-      this.classList.toggle("show"); });
-    </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    let archivo = document.getElementById("exampleFormControlFile1");
+    let imagen = document.getElementById("imagenProbando");
+
+    archivo.addEventListener("change", function() {
+      let file = archivo.files[0];
+      if (file) {
+        const fileReader = new FileReader();
+        fileReader.addEventListener("load", function() {
+          imagen.setAttribute("src", fileReader.result);
+        });
+        fileReader.readAsDataURL(file);
+      }
+    });
+  });
+</script>
+<script src="/javascripts/darkmode.js"></script>

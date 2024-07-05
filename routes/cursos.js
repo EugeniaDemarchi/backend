@@ -67,58 +67,44 @@ router.get("/modificar/:id_materia", function (req, res, next) {
   connection.query("SELECT * FROM materia where id_materia = " + req.params.id_materia,
     function (error, results, fields) {
       if (error) throw error;
-      // res.json({ data: results });
       res.render("3_formularioModificar", { data: results });
     }
   );
 });
 
 router.post("/modificar/:id_materia", upload.single("imagen"), async function (req, res, next) {
-    // let sentencia;
-    // if (req.file) {
-    //   sentencia = `update materia
-    //   set nombre= '${req.body.nombre}',
-    //   descripcion= '${req.body.descripcion}',
-    //   destinado_a= '${req.body.destinado_a}',
-    //   modalidad= '${req.body.modalidad}',
-    //   imagen= '/imagenes/${req.file.originalname}', 
-    //   duracion= '${req.body.duracion}' where id_materia=${req.params.id_materia}`;
-    //   fs.createReadStream("./uploads/" + req.file.filename).pipe(
-    //     fs.createWriteStream("./public/imagenes/" + req.file.originalname),
-    //     function (error) {}
-    //   );
-    // } else {
-    //   sentencia = `update materia 
-    //   set nombre = '${req.body.nombre}',
-    //   descripcion= '${req.body.descripcion}',
-    //   destinado_a = '${req.body.destinado_a}',
-    //   modalidad= '${req.body.modalidad}', 
-    //   duracion = '${req.body.duracion}' where id_materia=${req.params.id_materia}`;
-    // }
-    let sentencia;
+  console.log(req.body);
+  let sentencia;
+  if (req.file) {
+    sentencia = `UPDATE materia SET 
+      nombre = '${req.body.nombre}',
+      descripcion = '${req.body.descripcion}',
+      publico = '${req.body.publico}',
+      modalidad = '${req.body.modalidad}',
+      duracion = '${req.body.duracion}',
+      imagen = '/imagenes/${req.file.originalname}' 
+      WHERE id_materia = ${req.params.id_materia}`;
 
-  if (req.file){
-    sentencia =  `update materia set nombre  = '${req.body.nombre}', descripcion  = '${req.body.descripcion}', publico = '${req.body.publico}',modalidad= '${req.body.modalidad}', 
-    duracion = '${req.body.duracion}', imagen = '/imagenes/${req.file.originalname}' 
-     where id = ${req.params.id_materia} `
-
-     fs.createReadStream("./uploads/" + 
-      req.file.filename).pipe(fs.createWriteStream("./public/imagenes/" + 
-      req.file.originalname), function(error){})
-
-  } else {
-    sentencia = `update materia set nombre  = '${req.body.nombre}', descripcion  = '${req.body.descripcion}',publico = '${req.body.publico}',modalidad= '${req.body.modalidad}', duracion = '${req.body.duracion}' where id = ${req.params.id_materia}` 
-  }  
-
-    connection.query(sentencia, function (error, results, fields) {
-      if (error) throw error;
-      //res.json({ data: results });
-      res.render("finalizado", {
-        mensaje: "La materia fue modificada exitosamente",
+    fs.createReadStream("./uploads/" + req.file.filename)
+      .pipe(fs.createWriteStream("./public/imagenes/" + req.file.originalname), function (error) {
+        if (error) throw error;
       });
-    });
+  } else {
+    sentencia = `UPDATE materia SET 
+      nombre = '${req.body.nombre}',
+      descripcion = '${req.body.descripcion}',
+      publico = '${req.body.publico}',
+      modalidad = '${req.body.modalidad}', 
+      duracion = '${req.body.duracion}' 
+      WHERE id_materia = ${req.params.id_materia}`;
   }
-);
+
+  connection.query(sentencia, function (error, results, fields) {
+    if (error) throw error;
+    res.render("finalizado", { mensaje: "La materia fue modificada exitosamente" });
+  });
+});
+
 
 
 
@@ -142,7 +128,7 @@ router.post("/eliminar/:id_materia", function (req, res, next) {
       if (error) throw error;
       // res.json({ data: results });
       res.render("finalizado", {
-        mensaje: "El producto fue eliminado exitosamente",
+        mensaje: "La materia fue eliminada exitosamente",
       });
     }
   );
