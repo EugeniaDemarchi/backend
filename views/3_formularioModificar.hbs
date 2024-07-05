@@ -64,8 +64,7 @@
               type="file"
               class="form-control"
               id="exampleFormControlFile1"
-              name="imagen"
-            />
+              name="imagen">
             <label for="" class="mt-2">{{imagen}}</label>
             <img
               src="{{imagen}}"
@@ -107,7 +106,9 @@
 <script>
   let archivo=document.getElementById("exampleFormControlFile1"); let imagen=
   document.getElementById("imagenProbando"); let file;
-  archivo.addEventListener("change", function(){ file=archivo.files[0]; if
+  archivo.addEventListener("change", function(){ 
+    file=archivo.files[0]; 
+    if
   (file){ const fileReader= new FileReader();
   fileReader.addEventListener("load", function(){ imagen.setAttribute("src",
   fileReader.result) }) fileReader.readAsDataURL(file)} })
