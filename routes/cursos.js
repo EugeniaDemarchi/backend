@@ -64,12 +64,7 @@ router.post("/alta", upload.single("imagen"), async function (req, res, next) {
 //modificar
 
 router.get("/modificar/:id_materia", function (req, res, next) {
-<<<<<<< HEAD
-  connection.query(
-    "SELECT * FROM materia where id_materia = " + req.params.id_materia,
-=======
   connection.query("SELECT * FROM materia where id_materia = " + req.params.id_materia,
->>>>>>> origin/rama_sandraSosa
     function (error, results, fields) {
       if (error) throw error;
       res.render("3_formularioModificar", { data: results });
