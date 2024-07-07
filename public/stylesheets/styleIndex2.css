@@ -353,9 +353,10 @@ footer {
     padding: 0px;
     width: 300px;
   }
-  section p {
-    font-size: 16px;
-    padding: 0px 40px;
+
+  #subtitulo {
+    text-align: center;
+    font-size: 15px;
   }
 
   #letters {
@@ -427,6 +428,10 @@ footer {
   section {
     margin-top: 38rem;
   }
+  #subtitulo {
+    text-align: center;
+    font-size: 16px;
+  }
   #letters {
     grid-template-columns: repeat(2, 300px);
     gap: 30px;
@@ -477,7 +482,9 @@ footer {
     line-height: 6rem;
     color: #000;
   }
-
+  #subtitulo {
+    text-align: center;
+  }
   #letters {
     grid-template-columns: repeat(2, 400px);
     gap: 20px;
@@ -522,9 +529,13 @@ footer {
     line-height: 7rem;
     color: #000;
   }
+  #subtitulo {
+    text-align: center;
+  }
   section {
     margin-top: 70rem;
   }
+
   #letters {
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;

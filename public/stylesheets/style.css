@@ -344,10 +344,13 @@ footer {
   .texto-box {
     list-style-type: none;
     font-size: 16px;
-    text-align: center;
+    text-align: start;
+  }
+  li {
+    line-height: 32px;
   }
   .texto-box:last-child {
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
   }
   .texto-box:first-child {
     line-height: 42px;
@@ -451,15 +454,19 @@ footer {
   .texto-box {
     list-style-type: none;
     font-size: 18px;
-    text-align: center;
+    text-align: start;
   }
-  .texto-box:last-child {
-    margin-bottom: 4rem;
+  li {
+    line-height: 32px;
   }
   .texto-box:first-child {
     line-height: 42px;
     margin-bottom: 2rem;
   }
+  .texto-box:last-child {
+    margin-bottom: 2rem;
+  }
+
   .btn-caja {
     background-color: #cad2c5;
     color: #354f52;
@@ -542,11 +549,16 @@ footer {
   .texto-box {
     list-style-type: none;
     font-size: 18px;
+    text-align: start;
   }
   .texto-box:first-child {
     line-height: 42px;
     margin-bottom: 2rem;
   }
+  li {
+    line-height: 32px;
+  }
+
   .texto-box:last-child {
     margin-bottom: 4rem;
   }
@@ -607,7 +619,7 @@ footer {
     justify-items: center;
     margin-left: 1.25rem;
     margin-right: 1.25rem;
-    width: 50rem;
+    width: 60rem;
   }
 
   .img-box {
@@ -628,14 +640,20 @@ footer {
   .texto-box {
     list-style-type: none;
     font-size: 18px;
+    text-align: start;
+  }
+  li {
+    line-height: 32px;
   }
   .texto-box:first-child {
     line-height: 42px;
     margin-bottom: 2rem;
   }
+
   .texto-box:last-child {
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
   }
+
   .btn-caja {
     background-color: #cad2c5;
     color: #354f52;

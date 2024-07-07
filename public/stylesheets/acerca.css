@@ -175,6 +175,7 @@ nav li a:hover {
 }
 main p {
   line-height: 42px;
+  text-align: start;
 }
 /* estilos del footer */
 footer {
@@ -278,6 +279,7 @@ footer {
   }
   main p {
     line-height: 42px;
+    text-align: start;
   }
   .acerca {
     margin-bottom: 3rem;
@@ -304,6 +306,7 @@ footer {
   }
   main p {
     line-height: 42px;
+    text-align: start;
   }
   .footer-container {
     /* grid-template-columns: repeat(2, 1fr);*/
@@ -326,6 +329,7 @@ footer {
   }
   main p {
     line-height: 42px;
+    text-align: start;
   }
   .footer-container {
     grid-template-columns: repeat(3, 1fr);
@@ -347,6 +351,7 @@ footer {
   }
   main p {
     line-height: 42px;
+    text-align: start;
   }
   .footer-container {
     grid-template-columns: repeat(3, 1fr);
