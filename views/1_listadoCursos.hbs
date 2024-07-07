@@ -7,10 +7,10 @@
 
 <form class="row m-4" role="search" method="get" action="/cursos/listado/">
 <input class="col form-control ms-3" type="search" placeholder="id..." aria-label="Search"
-id="id:materia" name="id_materia"> <button style="height: 3rem"; class="col btn btn-primary" 
+id="id:materia" name="id_materia"> <button style="height: 2.31rem; margin-left: 0.5rem;"; class="col btn btn-primary" 
 type="submit">Buscar</button>
 <div class="col-4"></div>
-<a style="height: 3rem;" href="/cursos/alta/" class="col-3 btn btn-success me-3" >Agregar Curso</a>
+<a style="height: 2.5rem;" href="/cursos/alta/" class="col-3 btn btn-success me-3" >Agregar Curso</a>
 </form>
 
  
@@ -21,20 +21,15 @@ type="submit">Buscar</button>
 
       <table class="table table-hover table-striped table-bordered table-light">
         <thead>
-
           <tr class="text-center">
             <th>Id</th>
             <th>Nombre</th>
             <th>Descripción</th>
             <th>Público</th>
             <th>Modalidad</th>
-            <th>Imágen</th>
             <th>Duración</th>
-            <th></th>
-            <th></th> 
-
+            <th>Imágen</th>
           </tr>
-
         </thead>
         <tbody>
           {{#each data}}
@@ -42,17 +37,17 @@ type="submit">Buscar</button>
               <td>{{id_materia}}</td>
               <td>{{nombre}}</td>
               <td>{{descripcion}}</td>
-              <td>{{destinado_a}}</td>
+              <td>{{publico}}</td>
               <td>{{modalidad}}</td>
+              <td>{{duracion}}</td>
               <td style="width: 20%; "><img
                   src="{{imagen}}"
                   alt="Imagen del curso"
                   style="height: 20%"
                 /></td>
-              <td>{{duracion}}</td>
+              
               <td><a
-                  href="/cursos/modificar/
-                  {{id_materia}}"
+                  href="/cursos/modificar/{{id_materia}}"
                   class="btn btn-primary"
                 >Editar</a></td>
               <td><a
@@ -72,9 +67,5 @@ type="submit">Buscar</button>
   </div>
   
     <script src="/javascripts/darkmode.js"></script>
-    <script>
-      document .getElementById("menu-toggle") .addEventListener("click",
-      function () { document.querySelector("nav").classList.toggle("show");
-      this.classList.toggle("show"); });
-    </script>
+    
 
