@@ -1,1 +1,1 @@
-es para saber si descargo mi rama
+La base de datos se encuentra en https://phpmyadmin.alwaysdata.com/ , fue creado usuarios para el docente y para los integrantes del grupo para poder ingresar al link que se menciona arriba, el backend debe ser corrido localmente con nodemon, cada modificacion de los cursos se puede hacer a traves de las vistas y se ve reflejado en la base de datos.
