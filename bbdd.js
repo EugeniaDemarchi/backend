@@ -1,10 +1,30 @@
-var mysql = require("mysql");
+const usuarios = {
+  usuario1: {
+    user: "367907_euge",
+    password: "Euge-1234",
+  },
+  usuario2: {
+    user: "367907_sandra",
+    password: "Sandra-1234",
+  },
+  usuario3: {
+    user: "367907_lilia",
+    password: "Lilia-1234",
+  },
+  usuario4: {
+    user: "367907_docente",
+    password: "Docente-1234",
+  },
+  
+};
 
+const selectedUser = "usuario1"; 
+var mysql = require("mysql");
 var connection = mysql.createConnection({
-  host: "bghj9p2xcrrhmyb5xujw-mysql.services.clever-cloud.com",
-  user: "uajartje2oigcr4q",
-  password: "JOCwI0cR7JB0aCuWcd2G",
-  database: "bghj9p2xcrrhmyb5xujw",
+  host: "mysql-sosasandramabel.alwaysdata.net",
+  user: usuarios[selectedUser].user,
+  password: usuarios[selectedUser].password,
+  database: "sosasandramabel_tpartevivo",
 });
 
 connection.connect();
